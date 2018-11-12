@@ -85,3 +85,4 @@ while True:
     buffer_data.enqueue(dados)
     print('Buffer:')
     buffer_data.print_queue()
+
