@@ -11,12 +11,38 @@
 
 from machine import UART
 
+queue = [[] for i in range(10)]
+i = 0
+count = 0
+rows_count = 3
+cols_count = 3
+
+matrix = [[0 for j in range(cols_count)] for k in range(rows_count)]
+
+
+def store_data ():
+    for i in range(2):
+      data = queue[i]
+      row = data[1] - 48
+      col = data[3] - 48
+      matrix[row][col] = data #Limitar o dado para o ID
+      i = i + 1
+    
+    print('Matrix:', matrix)
+    return True
+    
+
 urt = UART(2, 9600)
 urt.init(9600, bits=8, parity=None, stop=1, tx=17, rx=16)
-queue = [[] for i in range(10)]
-
 
 while True:
-  if (urt.any()):
-    dados = urt.readline()
-    print('Dado:', dados)
+    if (urt.any()):
+        dados = urt.readline()
+        print('Dado:', dados)
+        queue[count] = dados
+        count = count + 1
+        print(count)
+        
+    if (count ==6):
+        store_data()
+        count = count + 1
