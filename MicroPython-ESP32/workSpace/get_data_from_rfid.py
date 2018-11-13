@@ -15,11 +15,11 @@ class CircularBuffer:
 
     #Constructor
     def __init__(self):
-        self.queue = [[] for i in range(50)] #Initializing the list
-        self.has_data = [[0] for i in range(50)] #A list to check if the position data is available for a new data
+        self.queue = [[] for i in range(4)] #Initializing the list
+        self.has_data = [[0] for i in range(4)] #A list to check if the position data is available for a new data
         self.head = 0
         self.tail = 0
-        self.maxSize = 50 #TAM_BUFFER
+        self.maxSize = 4 #TAM_BUFFER
 
     #Adding elements to the queue
     def enqueue(self, data):

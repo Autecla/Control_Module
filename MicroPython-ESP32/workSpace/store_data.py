@@ -11,11 +11,11 @@
 
 from machine import UART
 
-queue = [[] for i in range(10)]
+queue = ['0', '0', '0', '0', '0', '0', '0']
 i = 0
 count = 0
-rows_count = 3
-cols_count = 3
+rows_count = 6
+cols_count = 6
 
 matrix = [[0 for j in range(cols_count)] for k in range(rows_count)]
 
@@ -42,7 +42,7 @@ while True:
         queue[count] = dados
         count = count + 1
         print(count)
-        
-    if (count ==6):
+    if (count == 6):
         store_data()
         count = count + 1
+
