@@ -4,7 +4,7 @@
 
 #   @Autecla: Receive from UART_serial
 
-#   Sketch/program to read data from RFID_Module by UART_serial using micropython
+#   Sketch/program using micropython to read data from RFID_Module by UART_serial, store the received data in the Circular Buffer and store the received data in a matrix
 
 #   ESP32 Port:
 
