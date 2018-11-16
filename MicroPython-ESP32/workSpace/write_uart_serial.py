@@ -16,8 +16,8 @@
 from machine import UART
 import time
 
-urt = UART(2, 9600)
-urt.init(9600, bits=8, parity=None, stop=1, tx=17, rx=16)
+urt = UART(1, 9600)
+urt.init(9600, bits=8, parity=None, stop=1, tx=2, rx=4) 
 while True:
     urt.write('o')
     time.sleep(1)
