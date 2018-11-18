@@ -22,23 +22,23 @@ class CircularBuffer:
 
     #Constructor
     def __init__(self):
-        self.queue = [[] for i in range(10)] #Initializing the list
-        self.has_data = [[0] for i in range(10)] #A list to check if the position data is available for a new data
+        self.queue = ['0' for i in range(10)] #Initializing the list
+        self.has_data = ['0' for i in range(10)] #A list to check if the position data is available for a new data
         self.head = 0
         self.tail = 0
         self.maxSize = 10 #TAM_BUFFER
 
     #Adding elements to the queue
     def enqueue(self, data):
-        #print('hey:', self.has_data[self.tail])
         #if (self.size() == self.maxSize-1):
         #    return ("Queue Full! Back to the beginning of the queue!")
-        #if (self.has_data[self.tail] == '0'): #Doesn't work
-        #print('here')
-        self.queue[self.tail] = data
-        self.has_data[self.tail] = 1
-        self.tail = (self.tail + 1) % self.maxSize
-        return True
+        print('has_data:', self.has_data[self.tail])
+        if (self.has_data[self.tail] == '0'): 
+            print('here')
+            self.queue[self.tail] = data
+            self.has_data[self.tail] = 1
+            self.tail = (self.tail + 1) % self.maxSize
+            return True
 
     #Removing elements from the queue
     def dequeue(self):
@@ -88,7 +88,7 @@ matrix = [[0 for c in range(cols_count)] for r in range(rows_count)]
 
 def store_data ():
     print('oi')
-    for i in range(6):
+    for i in range(4):
         data = buffer_data.dequeue()
         print('Data:', data)
         row = data[1] - 48
@@ -115,6 +115,7 @@ while True:
     buffer_data.enqueue(dados)
     #buffer_data.print_queue()
     #print('Size:', buffer_data.size())
-    if(buffer_data.size() == 6):
+    if(buffer_data.size() == 4):
         store_data()   
+
 

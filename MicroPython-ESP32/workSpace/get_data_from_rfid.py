@@ -15,23 +15,23 @@ class CircularBuffer:
 
     #Constructor
     def __init__(self):
-        self.queue = [[] for i in range(4)] #Initializing the list
-        self.has_data = [[0] for i in range(4)] #A list to check if the position data is available for a new data
+        self.queue = ['0' for i in range(10)] #Initializing the list
+        self.has_data = ['0' for i in range(10)] #A list to check if the position data is available for a new data
         self.head = 0
         self.tail = 0
-        self.maxSize = 4 #TAM_BUFFER
+        self.maxSize = 10 #TAM_BUFFER
 
     #Adding elements to the queue
     def enqueue(self, data):
-        #print('hey:', self.has_data[self.tail])
         #if (self.size() == self.maxSize-1):
         #    return ("Queue Full! Back to the beginning of the queue!")
-        #if (self.has_data[self.tail] == '0'): #Doesn't work
-        #print('here')
-        self.queue[self.tail] = data
-        self.has_data[self.tail] = 1
-        self.tail = (self.tail + 1) % self.maxSize
-        return True
+        print('has_data:', self.has_data[self.tail])
+        if (self.has_data[self.tail] == '0'): 
+            print('here')
+            self.queue[self.tail] = data
+            self.has_data[self.tail] = 1
+            self.tail = (self.tail + 1) % self.maxSize
+            return True
 
     #Removing elements from the queue
     def dequeue(self):
@@ -76,5 +76,9 @@ while True:
     dados = urt.readline()
     print('Dado:', dados)
     buffer_data.enqueue(dados)
+    #file = open("Matrix.txt","w")
+    #file.write(dados)
+    #file.close()
     print('Buffer:')
     buffer_data.print_queue()
+

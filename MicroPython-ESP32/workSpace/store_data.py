@@ -25,7 +25,7 @@ def store_data ():
       data = queue[i]
       row = data[1] - 48
       col = data[3] - 48
-      matrix[row][col] = data #Limitar o dado para o ID
+      matrix[row][col] = data[4:30] #Limitar o dado para o ID
       i = i + 1
     
     print('Matrix:', matrix)
@@ -45,4 +45,5 @@ while True:
     if (count == 6):
         store_data()
         count = count + 1
+
 
