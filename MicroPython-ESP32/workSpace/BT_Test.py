@@ -10,19 +10,16 @@
 #      Pin_TX = RX2
 #   --------------------------------------------------------------------------------------------------------------------
 #****************************************************************************************************************************
-
-
-
 from machine import UART
 import time
 
 urt = UART(1, 9600)
 urt.init(9600, bits=8, parity=None, stop=1, tx=2, rx=4)
+i = 12
 while True:
-    urt.write('o')
-    time.sleep(1)
-
     #This part is to receive data from smartphone
     if (urt.any()):
       dados = urt.readline()
       print('Dado:', dados)
+
+
